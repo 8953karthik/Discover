@@ -1,0 +1,16 @@
+server:
+  port: 8118
+
+
+spring:
+  cloud:
+    gateway:
+      routes:
+      - id: discover_cilent1
+        uri: http://localhost:8953/
+        predicates:
+        - Path=/studentdb/**
+      - id: discover_client2
+        uri: http://localhost:9118/
+        predicates:
+        - Path=/app2/**
